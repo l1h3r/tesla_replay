@@ -1,4 +1,4 @@
-defmodule TeslaReplayTest do
+defmodule Tesla.Middleware.ReplayTest do
   use ExUnit.Case, async: true
-  doctest TeslaReplay
+  doctest Tesla.Middleware.Replay
 end

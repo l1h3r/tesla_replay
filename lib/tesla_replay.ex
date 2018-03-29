@@ -68,7 +68,7 @@ defmodule Tesla.Middleware.Replay do
     end
   end
 
-  @spec load(env :: env, opts :: keyword) :: env | no_return
+  @spec dump(env :: env, opts :: keyword) :: env | no_return
   defp dump(env, opts) do
     if dumpable?(env, opts) do
       env
@@ -88,8 +88,7 @@ defmodule Tesla.Middleware.Replay do
   end
 
   @spec b2t(binary :: binary) :: term
-  defp b2t(binary) when is_binary(binary), do: :erlang.binary_to_term(binary, [:safe])
-  defp b2t(data), do: data
+  defp b2t(binary), do: :erlang.binary_to_term(binary, [:safe])
 
   @spec t2b(term :: term) :: binary
   defp t2b(term), do: :erlang.term_to_binary(term, compressed: @compression)
